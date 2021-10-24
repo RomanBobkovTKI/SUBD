@@ -2,87 +2,77 @@
 #include <string>
 #include <ctime>
 
+#include "Header.h"
+
 using namespace std;
 
-class message {
-public:
-	void size_array() {
-		cout << "Enter the size of the one-dimensional array: ";
-	}
+int main() {
+	int tempSize;
+	cout << "Enter the size of the one-dimensional array: ";
+	cin >> tempSize;
+	workArray ar(tempSize);
+	ar.filArray();
+	ar.print_values();
+	ar.algo_min();
+	cout << "Minimum element: ";
+	cout << ar.getMin() << endl;
 
-	void res_algo() {
-		cout<< "Minimum element: ";
-	}
-};
+	return 0;
+}
 
-class workArray {
-public:
-	workArray(int sizeArray) {
-		this->size = sizeArray;
-	}
 
-	~workArray() {
-		delete[] values;
-	}
-
-	int createValues(int size) {
+	workArray::workArray(const int sizeArray) {
+		if (size <= 0)
+			throw new std::out_of_range("size");
+		this->size = size;
 		this->values = new int[size];
-		return 0;
 	}
 
-	int filArray(int temp) {
+	workArray::~workArray() {
+		if (values != nullptr)
+		{
+			delete[] values;
+			this->values = nullptr;
+		}
+	}
+
+
+	int workArray::filArray() {
 		srand(time(NULL));
 		int num;
-		for (int i = 0; i < temp; i++)
+		for (int i = 0; i < this->size; i++)
 		{
 			num = rand();
-			values[i] = num;
+			this->values[i] = num;
 		}
 		return 0;
 	}
 
-	int algo_min() {
-		min = values[0];
+	int workArray::algo_min() {
+		this->min = values[0];
 
-		for (int i = 0; i < size; i++)
-			if (values[i] < min) {
-				min = values[i];
+		for (int i = 0; i < this->size; i++)
+			if (values[i] < this->min) {
+				this->min = values[i];
 			}
 
-		return min;
+		return this->min;
 	}
 
-	void print_res() {
-		cout << min << endl;
+	int workArray::getMin() {
+		return this->min;
 	}
 
-	void print_values() {
+	int workArray::print_values() {
 		for (int i = 0; i < size; i++)
 		{
 			cout << values[i] << endl;
 		}
+		return 0;
 	}
 
-private:
-	int size;
-	int* values;
-	int min;
-};
+	
+	
 
 
 
-int main() {
-	int tempSize;
-	message m;
-	m.size_array();
-	cin >> tempSize;
-	workArray ar(tempSize);
-	ar.createValues(tempSize);
-	ar.filArray(tempSize);
-	ar.print_values();
-	ar.algo_min();
-	m.res_algo();
-	ar.print_res();
-
-	return 0;
-}
