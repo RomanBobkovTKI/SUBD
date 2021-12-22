@@ -1,5 +1,6 @@
 #pragma once
 
+#include <initializer_list>
 #include <iostream>
 #include <string>
 
@@ -7,68 +8,76 @@
 using namespace std;
 
 /**
- *   Класс стек для хранения целых чисел.
+ *  \brief Класс стек для хранения целых чисел.
  */
 class Stack
 {
 public:
 	/**
-	*  Конструктор по умолчанию.
-	*  По умолчанию размер стека равен 10
+	*  \brief Конструктор по умолчанию.
 	*/
-	Stack(int =10);
-
+	Stack();
 
 	/**
-	*  Деструктор по умолчанию.
+	*  \brief Создание объекта из последовательности.
 	*/
+	Stack(std::initializer_list<int> value);
+
 	~Stack();
 
 	/**
-	*   Добавляем элемент в вершину стека.
-	*   Целое значение.
+	*  \brief Добавляем элемент в стек.
+	*  \param value Целое значение.
 	*/
 	void Push(const int value);
 
 	/**
-	*  Удалить элемент из вершины стека и вернуть его
+	*  \brief Удаляем элемент в стек.
+	*  \return value Целое значение.
 	*/
 	int Pop();
 
-	
 	/**
-	*  n - й элемент от вершины стека
+	*  \brief .
+	*  \return .
 	*/
-	int Peek(const int value);
+	std::size_t GetSize() const;
 
-	/**
-	*  Получить размер стека
-	*/
-	int getStackSize();
-
-	/**
-	*  Получить номер текущего элемента в стеке
-	*/
-	int getTop();
-
-
+	bool isEmpty() const;
 
 private:
 	/**
-	*  Номер текущего элемента стека
-	*/
-	int top;
-	
-	/**
-	*  Указатель на стек
-	*/
-	Stack* stackPtr;
+   *  \brief Элементы стека для хранения целых чисел.
+   */
+	class StackElement
+	{
+	public:
+		/**
+		*  \brief Конструктор по умолчанию.
+		*/
+		StackElement();
 
-	/**
-	*  Максимальное количество элементов в стеке
-	*/
-	const int size;
+		/**
+		*  \brief Конструктор с параметрами.
+		*  \param value Целое значение.
+		*/
+		StackElement(int value);
+
+		/**
+		*  \brief Деструктор.
+		*/
+		~StackElement();
+
+	private:
+		int value;
+		StackElement* next;
+	};
+
+	size_t size;
+
+	StackElement* top;
+
+	Stack(const Stack& rhs);
+
+	Stack operator= (const Stack& rhs);
 };
-
-
-
