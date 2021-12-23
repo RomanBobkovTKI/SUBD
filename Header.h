@@ -32,6 +32,15 @@ public:
 	void Push(const int value);
 
 	/**
+	*  \brief Добавляем элемент в стек.
+	*  \param value Целое значение(элемент, который ищем)
+	*  \return res_value Целое значение(номер позиции).
+	*  \return result Булево значение.
+	*/
+	void Search(const int value);
+
+
+	/**
 	*  \brief Удаляем элемент в стек.
 	*  \return value Целое значение.
 	*/
@@ -77,7 +86,7 @@ private:
 
 	StackElement* top;
 
-	Stack(const Stack& rhs);
+	Stack = delete;
 
-	Stack operator= (const Stack& rhs);
+	Stack operator = delete;
 };
