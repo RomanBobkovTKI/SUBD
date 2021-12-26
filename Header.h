@@ -37,7 +37,7 @@ public:
 	*  \return res_value Целое значение(номер позиции).
 	*  \return result Булево значение.
 	*/
-	void Search(const int value);
+	int Search(const int value);
 
 
 	/**
@@ -85,8 +85,6 @@ private:
 	size_t size;
 
 	StackElement* top;
-
-	Stack = delete;
 
 	Stack operator = delete;
 };
