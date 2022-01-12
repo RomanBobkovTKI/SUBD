@@ -1,0 +1,3 @@
+﻿  Source.cpp
+C:\SUBD\zd01\zd01\zd01\Source.cpp(34,13): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  zd01.vcxproj -> C:\SUBD\zd01\zd01\Debug\zd01.exe
