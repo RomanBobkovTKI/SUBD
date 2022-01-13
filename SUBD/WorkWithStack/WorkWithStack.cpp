@@ -6,5 +6,5 @@ using namespace std;
 int main()
 {
     Stack stack = { 1, 2, 3, 4 };
-    cout << stack.Pop();
+    cout << stack.ToString();
 }

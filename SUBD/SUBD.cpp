@@ -58,14 +58,7 @@ std::size_t Stack::GetSize() const
 
 bool Stack::isEmpty() const
 {
-	if (this->size > 0 and this->top)
-	{
-		return false;
-	}
-	else
-	{
-		return true;
-	}
+	return !(this->size > 0 and this->top);
 }
 
 int Stack::Search(int value) 
@@ -82,4 +75,17 @@ int Stack::Search(int value)
 		elem = elem->next;
 		i++;
 	}
+}
+
+string Stack::ToString()
+{
+	auto elem = this->top;
+	string value = "";
+	while (elem)
+	{
+		value += std::to_string(elem->value);
+		elem = elem->next;
+		if (elem) value += ",";
+	}
+	return value;
 }

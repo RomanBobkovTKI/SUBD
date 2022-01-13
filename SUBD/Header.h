@@ -46,6 +46,12 @@ public:
 	int Pop();
 
 	/**
+	*  \brief Получить элементы Стека в виде строки
+	*  \return value Строка
+	*/
+	string ToString();
+
+	/**
 	*  \brief получить размер Стека
 	*  \return value Целое значение
 	*/
@@ -91,6 +97,6 @@ private:
 
 	StackElement* top;
 
-	Stack(const Stack& rhs);
-	Stack operator= (const Stack& rhs);
+	Stack(const Stack& rhs)=delete;
+	Stack operator= (const Stack& rhs)=delete;
 };
