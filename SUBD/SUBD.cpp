@@ -58,7 +58,7 @@ std::size_t Stack::GetSize() const
 
 bool Stack::isEmpty() const
 {
-	return !(this->size > 0 and this->top);
+	return !(this->size > 0 and this->top != nullptr);
 }
 
 int Stack::Search(int value) 
