@@ -20,7 +20,7 @@ Stack::~Stack()
 	}
 }
 
-Stack::StackElement::StackElement(const int value) :value(value) {}
+Stack::StackElement::StackElement(const int value) :value(value), next(nullptr) {}
 
 Stack::StackElement::~StackElement()
 {
@@ -72,7 +72,7 @@ int Stack::Search(int value)
 {	
 	if (this->isEmpty()) throw std::out_of_range("Нельзя искать в пустом Стеке");
 	auto elem = this->top;
-	int i = 0;
+	int i = 1;
 	while (this->top)
 	{
 		if (elem->value == value) {
