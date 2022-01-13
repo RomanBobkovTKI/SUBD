@@ -20,6 +20,8 @@ Stack::~Stack()
 	}
 }
 
+Stack::StackElement::StackElement() : value(), next(nullptr) {}
+
 Stack::StackElement::StackElement(const int value) :value(value), next(nullptr) {}
 
 Stack::StackElement::~StackElement()
@@ -71,7 +73,7 @@ int Stack::Search(int value)
 		if (elem->value == value) {
 			return i;
 		}
-		if (!elem->next) throw std::out_of_range("Элемент не найден");
+		if (elem->next == nullptr) throw std::out_of_range("Элемент не найден");
 		elem = elem->next;
 		i++;
 	}
