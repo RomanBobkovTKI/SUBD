@@ -22,6 +22,7 @@ namespace StackTests
 
 			Stack result = { 1,2,3 };
 			Assert::AreEqual(expectedSize, result.GetSize());
+			Assert::AreEqual(3, result.Pop());
 		}
 
 		TEST_METHOD(TestPush)
