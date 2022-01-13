@@ -97,5 +97,24 @@ namespace StackTests
 			expectedSize = 1;
 			Assert::AreEqual(expectedSize, result.GetSize());
 		}
+		
+		TEST_METHOD(TestToString)
+		{
+			Stack result;
+			string expected = "";
+			Assert::AreEqual(expected, result.ToString());
+
+			result.Push(78);
+			result.Push(32);
+			result.Push(80);
+			result.Push(5);
+			result.Push(53);
+			result.Push(13);
+			result.Push(60);
+			result.Push(5);
+
+			expected = "5,60,13,53,5,80,32,78";
+			Assert::AreEqual(expected, result.ToString());
+		}
 	};
 }
