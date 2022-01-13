@@ -32,23 +32,22 @@ public:
 	void Push(const int value);
 
 	/**
-	*  \brief Добавляем элемент в стек.
+	*  \brief Поиск элемента в стеке
 	*  \param value Целое значение(элемент, который ищем)
 	*  \return res_value Целое значение(номер позиции).
-	*  \return result Булево значение.
 	*/
 	int Search(const int value);
 
 
 	/**
-	*  \brief Удаляем элемент в стек.
+	*  \brief Удаляем элемент из стека.
 	*  \return value Целое значение.
 	*/
 	int Pop();
 
 	/**
-	*  \brief .
-	*  \return .
+	*  \brief получить размер Стека
+	*  \return value Целое значение
 	*/
 	std::size_t GetSize() const;
 
@@ -77,8 +76,14 @@ private:
 		*/
 		~StackElement();
 
-	private:
+		/**
+		*  \brief Значение для хранения.
+		*/
 		int value;
+
+		/**
+		*  \brief Элемент следующий за текущим
+		*/
 		StackElement* next;
 	};
 
@@ -86,5 +91,6 @@ private:
 
 	StackElement* top;
 
-	Stack operator = delete;
+	Stack(const Stack& rhs);
+	Stack operator= (const Stack& rhs);
 };
